@@ -53,6 +53,6 @@ class CognitoController extends Controller
     public function logoutCb(Request $request)
     {
         $request->session()->forget('username');
-        return redirect()->route('cognito.logout-cb');
+        return redirect()->route('home');
     }
 }
