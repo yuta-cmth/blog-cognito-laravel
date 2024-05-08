@@ -70,8 +70,6 @@ export AWS_COGNITO_CLIENT_SECRET=$(aws cognito-idp describe-user-pool-client --u
 ## Clean up
 
 ```bash
-# Emptying the bucket. Without it, cdk destroy will fail.
-aws s3 rm "s3://${bucket_name}" --recursive
 cdk destroy --force
 
 # Delete Cloud9 environment and IAM role.
