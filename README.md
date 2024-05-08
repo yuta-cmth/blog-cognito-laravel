@@ -1,3 +1,7 @@
+## Sequence of authentication flow
+
+[![Architecture](./diagram.drawio.svg)](./diagram.drawio.svg)
+
 ## Setup IAM policies and Cloud9 to deploy the resources
 
 See [Calling AWS services from an environment in AWS Cloud9](https://docs.aws.amazon.com/cloud9/latest/user-guide/credentials.html#credentials-temporary) for more information.
