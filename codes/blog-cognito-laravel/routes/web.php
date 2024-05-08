@@ -12,9 +12,6 @@ Route::get('/', function (Request $request) {
     if ($username && !empty ($cu?->refresh_token)) {
         $user['username'] = $username;
     }
-
-    // Not authenticated, redirect to Cognito hosted UI.
-
     return view('home', ['user' => $user]);
 })->name('home');
 
