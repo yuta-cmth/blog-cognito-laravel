@@ -11,7 +11,6 @@ class CognitoController extends Controller
 {
     public function loginCb(Request $request)
     {
-        Log::info('login cb');
         $code = $request->query()['code'];
         $token_endpoint = 'https://' . config('aws.cognito.hosted_ui_domain') . '/oauth2/token';
         $client = new \GuzzleHttp\Client();
@@ -31,8 +30,6 @@ class CognitoController extends Controller
         $payload = explode('.', $id_token)[1];
         $payload = base64_decode($payload);
         $payload = json_decode($payload, true);
-        Log::debug('token');
-        Log::debug($payload);
         $username = $payload['cognito:username'];
         $refresh_token = $body['refresh_token'];
 
@@ -45,7 +42,6 @@ class CognitoController extends Controller
             uniqueBy: ['username'],
             update: ['refresh_token'],
         );
-        Log::debug('Upserted user');
 
         return redirect()->route('home');
     }
